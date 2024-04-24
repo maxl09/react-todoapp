@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #8758ff;
+}
+
+h1,
+p {
+    color: white;
+}
+
+input {
+    outline: none;
+    border: 1px solid #8758ff;
+    border-radius: 5px;
+    background-color: #1A1A40;
+    color: white;
+    padding: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #8758ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #8758ffbb;
+    color: rgba(255, 255, 255, 0.799);
+}
+
+.todo-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-container {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;
+    min-height: 600px;
+    height: fit-content;
+    background-color: #1A1A40;
+    padding: 30px;
+    gap: 20px;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-container input {
+    flex: 1;
+}
+
+
+.task-container {
+    background-color: #8758ff;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
