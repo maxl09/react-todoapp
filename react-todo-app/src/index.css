@@ -85,8 +85,14 @@ button:hover {
     text-decoration: line-through;
 }
 
-.icon,
-p {
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon {
     cursor: pointer;
 }
 

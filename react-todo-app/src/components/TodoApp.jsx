@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 const TodoApp = () => {
     const [tasks, setTasks] = useState([]);
@@ -12,7 +12,8 @@ const TodoApp = () => {
         }
         const item = {
             id: Math.floor(Math.random() * 10000),
-            value: newTask
+            value: newTask,
+            isComplete: false
         }
         setTasks(oldTasks => [...oldTasks, item]);
         setNewTask('');
@@ -23,13 +24,7 @@ const TodoApp = () => {
     }
 
     const completeTask = (id) => {
-        let updatedTodos = tasks.map(task => {
-            if (task.id === id) {
-                task.isComplete = !todo.isComplete;
-            }
-            return task;
-        });
-        setTasks(updatedTodos);
+        setTasks(tasks.map((task) => task.id === id ? { ...task, isComplete: !task.isComplete } : task))
     }
 
     return (
@@ -43,8 +38,10 @@ const TodoApp = () => {
 
                 {tasks.map((task) =>
                     <div className="task-container">
-                        <p className={task.isComplete ? 'completed' : ''} key={task.id} onClick={() => completeTask(task.id)}>{task.value}</p>
-                        <span className="icon" onClick={() => deleteTask(task.id)}><FontAwesomeIcon icon={faTrash} /></span>
+                        <p className={task.isComplete ? 'completed' : ''}>{task.value}</p>
+                        <div className="icon-container" >
+                            <FontAwesomeIcon className="icon" key={task.id} onClick={() => completeTask(task.id)} icon={faCheck} /><FontAwesomeIcon className="icon" onClick={() => deleteTask(task.id)} icon={faTrash} />
+                        </div>
                     </div>
                 )}
 
